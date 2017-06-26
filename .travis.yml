@@ -12,8 +12,7 @@ before_script:
 script:
 # export your own config for example
  - export CROSS_COMPILE=$PWD/aarch64-linux-android-4.8/bin/aarch64-linux-android-
-#- export DEFCONFIG=pakuhak_defconfig
- - export DEFCONFIG=pxa1908_xcover3lte_eur_defconfig
+ - export DEFCONFIG=akuhak_pxa1908-xcover3ltexx_defconfig
  - make -j2 $DEFCONFIG
  - make -j2 --silent
  - mkimage -A arm64 -O linux -T kernel -C gzip -a 01000000 -e 01000000 -d arch/arm64/boot/Image.gz -n "pxa1928dkb linux" arch/arm64/boot/uImage
