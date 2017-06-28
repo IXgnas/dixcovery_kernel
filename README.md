@@ -18,3 +18,6 @@ This is a customized version of the Samsung xCover 3 Lollipop 5.1.1 kernel, aimi
 
 # <a name="compiling"></a>Compiling the Kernel from source code
 * "TEXT"
+
+# <a name="compiling"></a>Clean kernel
+* $ make clean && make ARCH=arm64 distclean 
