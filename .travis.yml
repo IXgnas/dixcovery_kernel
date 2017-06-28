@@ -7,8 +7,7 @@ before_install:
  - git clone https://github.com/aapav01/aarch64-linux-android-4.9-linaro /opt/toolchains/aarch64-linux-android-4.9-linaro
 before_script:
  - git clone https://github.com/AKuHAK/pxa-mkbootimg
- - make -C pxa1xx8-mkbootimg/
- - make -C pxa-mkbootimg/ #--silent
+ - make -C pxa-mkbootimg/
 script:
 # export your own config for example
  - export DEFCONFIG=akuhak_pxa1908-xcover3ltexx_defconfig
