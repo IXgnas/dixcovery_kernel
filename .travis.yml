@@ -10,7 +10,7 @@ before_script:
 script:
 # export your own config for example
  - make $DEFCONFIG
- - make -j5 --silent
+ - make -j2 --silent
  - mkimage -A arm64 -O linux -T kernel -C gzip -a 01000000 -e 01000000 -d arch/arm64/boot/Image.gz -n "pxa1928dkb linux" arch/arm64/boot/uImage
  - ./pxa1908-dtbTool -o prebuilt/dtb.img -p scripts/dtc/ arch/arm64/boot/dts/ -v
  - ./pxa-mkbootimg --kernel arch/arm64/boot/uImage --ramdisk prebuilt/ramdisk_gz --dt prebuilt/dtb.img --unknown 0x03000000 -o boot.img
