@@ -5,8 +5,11 @@ before_install:
  - wget http://security.ubuntu.com/ubuntu/pool/main/u/u-boot/u-boot-tools_2016.01+dfsg1-2ubuntu3_amd64.deb -O uboot.deb
  - sudo dpkg -i uboot.deb
  - git clone https://github.com/aapav01/aarch64-linux-android-4.9-linaro /opt/toolchains/aarch64-linux-android-4.9-linaro
+ - git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.8 /opt/toolchains/aarch64-linux-android-4.8
 before_script:
  - export DEFCONFIG=akuhak_pxa1908-xcover3ltexx_defconfig
+ - export PATH=$PATH:/opt/toolchains/aarch64-linux-android-4.8/bin/
+ - export CROSS_COMPILE=$PWD/aarch64-linux-android-4.8/bin/aarch64-linux-android-
 script:
 # export your own config for example
  - make $DEFCONFIG
