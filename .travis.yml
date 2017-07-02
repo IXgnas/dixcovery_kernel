@@ -13,7 +13,7 @@ before_script:
 script:
 # export your own config for example
  - make $DEFCONFIG
- - make -j2 #--silent
+ - make --silent
  - mkimage -A arm64 -O linux -T kernel -C gzip -a 01000000 -e 01000000 -d arch/arm64/boot/Image.gz -n "pxa1928dkb linux" arch/arm64/boot/uImage
  - cd ramdisk
  - find . | cpio -o -H newc | gzip > ../ramdisk-out.cpio.gz
