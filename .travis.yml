@@ -22,7 +22,7 @@ script:
  - ./pxa1908-dtbtool -o dtb.img -p scripts/dtc/ arch/arm64/boot/dts/ -v
  - ./pxa-mkbootimg --kernel arch/arm64/boot/uImage --ramdisk ramdisk-out.cpio.gz --dt dtb.img --unknown 0x03000000 -o boot.img
  - echo "SEANDROIDENFORCE" >> boot.img
- - tar -H ustar -c boot.img
+ - tar -H ustar -c boot.img > boot.img.tar
  - md5sum -t boot.img.tar >> boot.img.tar
  - mv boot.img.tar boot.tar.md5
 after_script:
