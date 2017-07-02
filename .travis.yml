@@ -9,11 +9,11 @@ before_install:
 before_script:
  - export DEFCONFIG=akuhak_pxa1908-xcover3ltexx_defconfig
  - export PATH=$PATH:/opt/toolchains/aarch64-linux-android-4.8/bin/
- - export CROSS_COMPILE=$PWD/aarch64-linux-android-4.8/bin/aarch64-linux-android-
+ - export CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.8/bin/aarch64-linux-android-
 script:
 # export your own config for example
  - make $DEFCONFIG
- - make -j2 --silent
+ - make -j2 #--silent
  - mkimage -A arm64 -O linux -T kernel -C gzip -a 01000000 -e 01000000 -d arch/arm64/boot/Image.gz -n "pxa1928dkb linux" arch/arm64/boot/uImage
  - cd ramdisk
  - find . | cpio -o -H newc | gzip > ../ramdisk-out.cpio.gz
