@@ -14,8 +14,8 @@ before_script:
  - export DEFCONFIG=akuhak_pxa1908-xcover3ltexx_defconfig
 # - export PATH=$PATH:/opt/toolchains/aarch64-linux-android-4.9/bin/
 # - export CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android-
- - export PATH=$PATH:/opt/toolchains/aarch64-linux-android-4.9.4/bin/
- - export CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9.4/bin/aarch64-linux-gnu-
+ - export PATH=$PATH:/opt/toolchains/aarch64-linux-android-4.9.4-linaro/bin/
+ - export CROSS_COMPILE=/opt/toolchains/aarch64-linux-android-4.9.4-linaro/bin/aarch64-linux-gnu-
 script:
 # export your own config for example
  - make $DEFCONFIG
