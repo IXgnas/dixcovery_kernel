@@ -1,0 +1,188 @@
+../uksm2.patch:644: trailing whitespace.
+		offset = (index & root->mask) + 1;				
+../uksm2.patch:752: trailing whitespace.
+	      j < root->stores_size - node->count && 
+../uksm2.patch:797: trailing whitespace.
+ *  
+../uksm2.patch:825: trailing whitespace.
+void sradix_tree_delete_from_leaf(struct sradix_tree_root *root, 
+../uksm2.patch:912: trailing whitespace.
+void *sradix_tree_lookup_create(struct sradix_tree_root *root, 
+Checking patch Documentation/vm/00-INDEX...
+error: while searching for:
+	- explains what hwpoison is
+ksm.txt
+	- how to use the Kernel Samepage Merging feature.
+numa
+	- information about NUMA specific code in the Linux vm.
+numa_memory_policy.txt
+
+error: patch failed: Documentation/vm/00-INDEX:16
+error: Documentation/vm/00-INDEX: patch does not apply
+Checking patch Documentation/vm/uksm.txt...
+error: Documentation/vm/uksm.txt: already exists in working directory
+Checking patch fs/exec.c...
+error: while searching for:
+ * current->executable is only used by the procfs.  This allows a dispatch
+ * table to check for several different types  of binary formats.  We keep
+ * trying until we recognize the file or we run out of supported binary
+ * formats. 
+ */
+
+#include <linux/slab.h>
+
+error: patch failed: fs/exec.c:19
+error: fs/exec.c: patch does not apply
+Checking patch fs/proc/meminfo.c...
+error: while searching for:
+		"SUnreclaim:     %8lu kB\n"
+		"KernelStack:    %8lu kB\n"
+		"PageTables:     %8lu kB\n"
+#ifdef CONFIG_QUICKLIST
+		"Quicklists:     %8lu kB\n"
+#endif
+
+error: patch failed: fs/proc/meminfo.c:121
+error: fs/proc/meminfo.c: patch does not apply
+Checking patch include/asm-generic/pgtable.h...
+error: while searching for:
+			unsigned long size);
+#endif
+
+#ifdef __HAVE_COLOR_ZERO_PAGE
+static inline int is_zero_pfn(unsigned long pfn)
+{
+	extern unsigned long zero_pfn;
+	unsigned long offset_from_zero_pfn = pfn - zero_pfn;
+	return offset_from_zero_pfn <= (zero_page_mask >> PAGE_SHIFT);
+}
+
+#define my_zero_pfn(addr)	page_to_pfn(ZERO_PAGE(addr))
+
+error: patch failed: include/asm-generic/pgtable.h:502
+error: include/asm-generic/pgtable.h: patch does not apply
+Checking patch include/linux/ksm.h...
+error: while searching for:
+#ifdef CONFIG_KSM
+int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
+		unsigned long end, int advice, unsigned long *vm_flags);
+int __ksm_enter(struct mm_struct *mm);
+void __ksm_exit(struct mm_struct *mm);
+
+static inline int ksm_fork(struct mm_struct *mm, struct mm_struct *oldmm)
+{
+	if (test_bit(MMF_VM_MERGEABLE, &oldmm->flags))
+		return __ksm_enter(mm);
+	return 0;
+}
+
+static inline void ksm_exit(struct mm_struct *mm)
+{
+	if (test_bit(MMF_VM_MERGEABLE, &mm->flags))
+		__ksm_exit(mm);
+}
+
+/*
+ * A KSM page is one of those write-protected "shared pages" or "merged pages"
+
+error: patch failed: include/linux/ksm.h:19
+error: include/linux/ksm.h: patch does not apply
+Checking patch include/linux/mm_types.h...
+error: while searching for:
+#ifdef CONFIG_NUMA
+	struct mempolicy *vm_policy;	/* NUMA policy for the VMA */
+#endif
+};
+
+struct core_thread {
+
+error: patch failed: include/linux/mm_types.h:307
+error: include/linux/mm_types.h: patch does not apply
+Checking patch include/linux/mmzone.h...
+error: while searching for:
+#endif
+	NR_ANON_TRANSPARENT_HUGEPAGES,
+	NR_FREE_CMA_PAGES,
+	NR_VM_ZONE_STAT_ITEMS };
+
+/*
+
+error: patch failed: include/linux/mmzone.h:148
+error: include/linux/mmzone.h: patch does not apply
+Checking patch include/linux/sradix-tree.h...
+error: include/linux/sradix-tree.h: already exists in working directory
+Checking patch include/linux/uksm.h...
+error: include/linux/uksm.h: already exists in working directory
+Checking patch kernel/fork.c...
+error: while searching for:
+				goto fail_nomem;
+			charge = len;
+		}
+		tmp = kmem_cache_alloc(vm_area_cachep, GFP_KERNEL);
+		if (!tmp)
+			goto fail_nomem;
+		*tmp = *mpnt;
+
+error: patch failed: kernel/fork.c:394
+error: kernel/fork.c: patch does not apply
+Checking patch lib/Makefile...
+error: while searching for:
+endif
+
+lib-y := ctype.o string.o vsprintf.o cmdline.o \
+	 rbtree.o radix-tree.o dump_stack.o timerqueue.o\
+	 idr.o int_sqrt.o extable.o \
+	 sha1.o md5.o irq_regs.o reciprocal_div.o argv_split.o \
+	 proportions.o flex_proportions.o prio_heap.o ratelimit.o show_mem.o \
+
+error: patch failed: lib/Makefile:8
+error: lib/Makefile: patch does not apply
+Checking patch lib/sradix-tree.c...
+error: lib/sradix-tree.c: already exists in working directory
+Checking patch mm/Makefile...
+error: while searching for:
+obj-$(CONFIG_SPARSEMEM_VMEMMAP) += sparse-vmemmap.o
+obj-$(CONFIG_SLOB) += slob.o
+obj-$(CONFIG_MMU_NOTIFIER) += mmu_notifier.o
+obj-$(CONFIG_KSM) += ksm.o
+obj-$(CONFIG_PAGE_POISONING) += debug-pagealloc.o
+obj-$(CONFIG_SLAB) += slab.o
+obj-$(CONFIG_SLUB) += slub.o
+
+error: patch failed: mm/Makefile:40
+error: mm/Makefile: patch does not apply
+Checking patch mm/memory.c...
+error: while searching for:
+unsigned long zero_pfn __read_mostly;
+unsigned long highest_memmap_pfn __read_mostly;
+
+/*
+ * CONFIG_MMU architectures set up ZERO_PAGE in their paging_init()
+ */
+
+error: patch failed: mm/memory.c:117
+error: mm/memory.c: patch does not apply
+Checking patch mm/mmap.c...
+error: while searching for:
+#include <linux/sched/sysctl.h>
+#include <linux/notifier.h>
+#include <linux/memory.h>
+
+#include <asm/uaccess.h>
+#include <asm/cacheflush.h>
+
+error: patch failed: mm/mmap.c:36
+error: mm/mmap.c: patch does not apply
+Checking patch mm/uksm.c...
+error: mm/uksm.c: already exists in working directory
+Checking patch mm/vmstat.c...
+error: while searching for:
+#endif
+	"nr_anon_transparent_hugepages",
+	"nr_free_cma",
+	"nr_dirty_threshold",
+	"nr_dirty_background_threshold",
+
+
+error: patch failed: mm/vmstat.c:772
+error: mm/vmstat.c: patch does not apply
