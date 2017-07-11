@@ -104,3 +104,9 @@ output/
 
 packit
 makeboot
+pxa1908-dtbTool
+pxa1908-dtbtool
+boot.img
+dtb.img
+pxa-mkbootimg
+mkbootfs
