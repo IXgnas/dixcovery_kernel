@@ -20,7 +20,7 @@
 #include <linux/cpu.h>
 #include <linux/cpumask.h>
 #include <linux/cpufreq.h>
-#include <linux/ipa.h>
+/*#include <linux/ipa.h>*/
 #include <linux/module.h>
 #include <linux/moduleparam.h>
 #include <linux/rwsem.h>
