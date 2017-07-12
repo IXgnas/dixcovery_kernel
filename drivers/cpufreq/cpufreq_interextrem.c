@@ -20,7 +20,6 @@
 #include <linux/cpu.h>
 #include <linux/cpumask.h>
 #include <linux/cpufreq.h>
-/*#include <linux/ipa.h>*/
 #include <linux/module.h>
 #include <linux/moduleparam.h>
 #include <linux/rwsem.h>
@@ -35,19 +34,6 @@
 #include <linux/kernel_stat.h>
 #include <linux/pm_qos.h>
 #include <asm/cputime.h>
-#ifdef CONFIG_ANDROID
-#include <asm/uaccess.h>
-#include <linux/syscalls.h>
-#include <linux/android_aid.h>
-#endif
-
-#ifdef CONFIG_ARM_EXYNOS_MP_CPUFREQ
-#include <mach/cpufreq.h>
-#endif
-#include "cpu_load_metric.h"
-#ifdef CONFIG_PMU_COREMEM_RATIO
-#include "pmu_func.h"
-#endif
 
 #define CREATE_TRACE_POINTS
 #include <trace/events/cpufreq_interextrem.h>
