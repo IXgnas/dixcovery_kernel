@@ -67,6 +67,12 @@ config CPU_FREQ_DEFAULT_GOV_PERFORMANCE
 	  the frequency statically to the highest frequency supported by
 	  the CPU.
 
+config CPU_FREQ_DEFAULT_GOV_ZZMOOVE
+	bool "zzmoove"
+	select CPU_FREQ_GOV_ZZMOOVE
+	help
+	  Use the CPUFreq governor 'ZZmoove' as default.
+
 config CPU_FREQ_DEFAULT_GOV_POWERSAVE
 	bool "powersave"
 	depends on EXPERT
@@ -128,6 +134,16 @@ config CPU_FREQ_GOV_PERFORMANCE
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called cpufreq_performance.
+
+	  If in doubt, say Y.
+
+config CPU_FREQ_GOV_ZZMOOVE
+	tristate "'zzmoove' governor"
+	help
+	  ZZmoove.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called cpufreq_zzmoove.
 
 	  If in doubt, say Y.
 
