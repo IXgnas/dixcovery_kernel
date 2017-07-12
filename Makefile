@@ -200,7 +200,7 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/x86/ -e s/x86_64/x86/ \
 #CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?=arm64
-CROSS_COMPILE	?=$HOME/opt/toolchains/aarch64-linux-android-4.8/bin/aarch64-linux-android-
+CROSS_COMPILE	?=/opt/toolchains/aarch64-linux-android-4.9-linaro/bin/aarch64-linux-android-
 
 
 # Architecture as present in compile.h
