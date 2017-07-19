@@ -106,7 +106,9 @@ packit
 makeboot
 pxa1908-dtbTool
 pxa1908-dtbtool
-boot.img
-dtb.img
+*.img
 pxa-mkbootimg
 mkbootfs
+*.zip
+boot.tar.md5
+*.patch

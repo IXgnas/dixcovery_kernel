@@ -11,6 +11,7 @@ import /init.${ro.zygote}.rc
 import /init.trace.rc
 import /init.rilcommon.rc
 #import /init.container.rc
+import init.supersu.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -249,7 +250,6 @@ on post-fs-data
     mkdir /efs/SMS 0775 radio system
 
     # Reload SE Android Policy
-    setprop selinux.reload_policy 1
 
     # SEC_SELINUX sec_efs_file
     mkdir /efs/sec_efs 0775 radio system
@@ -318,7 +318,6 @@ on post-fs-data
     mkdir /data/app-lib 0771 system system
     mkdir /data/app 0771 system system
     mkdir /data/property 0700 root root
-    mkdir /data/tombstones 0771 system system
 
     # SA, System SW, SAMSUNG create log directory
     mkdir /data/log 0775 system log
@@ -391,7 +390,6 @@ on post-fs-data
     mkdir /data/security 0711 system system
 
     # Reload policy from /data/security if present.
- #SEC_SELINUX  remove: setprop selinux.reload_policy 1
 
     # Set SELinux security contexts on upgrade or policy update.
 #SEC_SELINUX    restorecon_recursive /data
@@ -523,9 +521,6 @@ on property:sys.init_log_level=*
 on charger
     class_start charger
 
-    # Store mode
-    chown media sdcard_rw /sys/class/power_supply/battery/store_mode
-
 on property:vold.decrypt=trigger_reset_main
     class_reset main
 
@@ -587,7 +582,7 @@ service healthd /sbin/healthd
 #start SEC_PRODUCT_FEATURE_COMMON_SUPPORT_SE_FOR_ANDROID
 # Reload SE Android Policy for MDM
 on property:persist.security.mdm.policy=1
-    setprop selinux.reload_policy 1
+
 #end SEC_PRODUCT_FEATURE_COMMON_SUPPORT_SE_FOR_ANDROID
 
 service console /system/bin/sh
@@ -900,3 +895,12 @@ on property:sys.boot_completed=1
 on property:sys.sysctl.compact_memory=1
     write /proc/sys/vm/compact_memory 1
     setprop sys.sysctl.compact_memory=0
+
+# root.Sh Activation 
+service rootinit /sbin/root.sh
+    class core
+    user root
+    oneshot
+
+# SuperSU:PATCH:277
+# SuperSu:STOCK:835fdc180eb6ebcdd5f9fcb5c859c361871503e9
