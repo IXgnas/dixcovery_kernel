@@ -2,7 +2,7 @@
     .section .rodata
     .p2align 3
 _fw_mtouch1_fw_hex_bin:
-    .incbin "/home/ignas/Android/xcover3ltexx_custom_kernel/firmware/mtouch1_fw.hex"
+    .incbin "/home/ignas/Android/dixcovery_kernel/firmware/mtouch1_fw.hex"
 _fw_end:
    .section .rodata.str,"aMS",@progbits,1
     .p2align 3

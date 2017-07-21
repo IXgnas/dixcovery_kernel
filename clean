@@ -1,0 +1,5 @@
+rm boot.img
+rm dtb.img
+rm ramdisk-out.cpio.gz
+rm boot.tar.md5
+rm *.zip
